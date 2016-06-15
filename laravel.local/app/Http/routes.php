@@ -17,14 +17,22 @@ use App\User;
 Route::resource('users', 'UsersController');
 
 Route::get('/', function () {
+    return view('welcomeS');
+});
+//Форма для добавления
+Route::get('/users', function () {
     return view('users');
+});
+//Форма для добавления
+Route::get('/author', function () {
+    return view('author');
 });
 // Отображение текущего пользователя
 Route::get('/user/{id}', function () {
     //
 });
 // Добавление нового пользователя
-Route::post('/user', function (Request $request) {
+Route::get('/user', function (Request $request) {
     $user = new User;
     $user->FIO = $request->FIO;
     $user->VUZ = $request->VUZ;
