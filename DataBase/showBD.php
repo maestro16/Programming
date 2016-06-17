@@ -1,9 +1,9 @@
 <?php
-require_once 'inspection.php';
-require_once 'ClassDataBase/connectBD.php';
+//require_once 'inspection.php';
+require_once 'connectBD.php';
 
 $sql = "SELECT * FROM `u516131903_proj`.`Project`";
-$result = $conn -> query($sql);
+$result = $dbh->query($sql) or die("ERROR: ".mysql_error());
 print '
 <br><br>
 <div id="main">
@@ -24,4 +24,5 @@ print "</table>
     </div>
   </div>
 </div>";
+
 ?>

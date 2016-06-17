@@ -1,6 +1,6 @@
 <?php
 require_once 'inspection.php';
-require_once 'ClassDataBase/connectBD.php';
+require_once 'connectBD.php';
 ?>
 <html>
 <head>
@@ -79,7 +79,7 @@ require_once 'ClassDataBase/connectBD.php';
       </div>
       <div class="modal-body">
         <form id="forma3">
-            <input type="text" class="form-control" name="id" maxlength=3 size=2 placeholder="ID">
+            <input type="number" class="form-control" name="id" maxlength=3 size=2 placeholder="ID">
         </form>
       </div>
       <div class="modal-footer">
@@ -109,7 +109,7 @@ require_once 'ClassDataBase/connectBD.php';
   <?php
 
   $sql = "SELECT * FROM `u516131903_proj`.`Project`";
-  $result = $conn -> query($sql);
+  $result = $dbh->query($sql);
   print '
   <br><br>
   <div id="main">

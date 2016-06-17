@@ -4,12 +4,9 @@ require_once 'connectBD.php';
 
 $id = $_POST['id'];
 
-
 $sql = "DELETE FROM `u516131903_proj`.`Project` WHERE `id` = $id";
-$result = $conn->prepare($sql);
+$result = $dbh->prepare($sql) or die("ERROR: ".mysql_error());
+print("Запись удалена!");
 $result->bindValue(":id", $id);
-echo $result->execute();
-
-$conn->lastInsertId();
-
+$result->execute();
 ?>

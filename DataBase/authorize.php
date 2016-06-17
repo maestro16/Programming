@@ -1,10 +1,10 @@
 <?php
   require_once 'connectBD.php';
 
-$inpLogin = $_POST['login'];
-$inpPass = $_POST['password'];
+$inpLogin =  trim(stripcslashes(htmlspecialchars($_POST['login'])));
+$inpPass = trim(stripcslashes(htmlspecialchars($_POST['password'])));
 $sql = "SELECT * FROM `u516131903_proj`.`Users` WHERE `login` LIKE '%$inpLogin%' AND `password` LIKE '%$inpPass%'";
-$result = $conn -> query($sql);
+$result = $dbh->query($sql) or die("ERROR: ".mysql_error());
 $row = $result->fetch(PDO::FETCH_ASSOC);
 $login = $row["login"];
 $password = $row["password"];
