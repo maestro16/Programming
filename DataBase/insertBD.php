@@ -8,7 +8,8 @@ if(
 !empty($_POST['Course']) &&
 !empty($_POST['Phone'])
 )
-  {
+ {
+  try {
     $FIO = trim(stripcslashes(htmlspecialchars($_POST['FIO'])));
     $Vuz = trim(stripcslashes(htmlspecialchars($_POST['Vuz'])));
     $Course = trim(stripcslashes(htmlspecialchars($_POST['Course'])));
@@ -21,7 +22,12 @@ if(
     $result->bindValue(":Phone", $Phone);
     $message = 'Data saved: ' . $result->execute();
     print('Запись добавлена!');
-  }else{
-  print('Заполните все строки!');
+  }
+  catch (Exception $e) {
+      echo '<br>Ошибка:' . $e->getMessage(). '<br>';
+  }
 }
+  else{
+    print('Заполните все строки!');
+  }
 ?>
